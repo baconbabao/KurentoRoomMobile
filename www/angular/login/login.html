@@ -1,0 +1,87 @@
+<ion-view cache-view="false" view-title="Kurento Room">
+    <ion-header-bar class="bar-stable">
+        <h1 class="title">Kurento Room</h1>
+    </ion-header-bar>
+
+    <ion-content>
+
+        <div class="join">
+            <div id="join-title"></div>
+        
+            <div class="card" id="join">
+                <form role="form" ng-submit="register(room)" accept-charset="UTF-8">
+        
+                    <div class="card__content">
+                        <label class="item item-input" error="!nameValidation(room.userName)">
+                            <span class="input-label">Username</span>
+                            <input type="text" id="name" ng-model="room.userName" required>
+                        </label>
+                        <span class="text-field-error" ng-if="!nameValidation(room.userName)">Invalid, please use:
+                            <em>a-zA-Z0-9</em></span>
+        
+                        <div class="grid">
+        
+                            <div ng-class="roomPickerClass">
+                                <label class="item item-input" error="!nameValidation(room.roomName)">
+                                    <span class="input-label">{{roomPickerLabel}}</span>
+                                    <input type="text" id="roomName" ng-model="room.roomName" required
+                                    ng-change="nameValidation(room.roomName) && updateRoomUrl(room.roomName)"
+                                    ng-disabled="existingRoomName">
+                                </label>            
+                                <span class="text-field-error" ng-if="!nameValidation(room.roomName)">Allowed chars:
+                                    <em>a-zA-Z0-9</em></span>
+                            </div>
+        
+                            <div class="grid__col6" ng-if="!existingRoomName">
+
+                                <label class="item item-input item-select">
+                                    <div class="input-label">
+                                        Current rooms
+                                    </div>
+                                    <select ng-model="room.roomName" 
+                                        ng-options="item for item in listRooms">
+                                    </select>
+                                </label>
+
+                            </div>
+       
+                        </div>
+        
+                    </div>
+        
+                    <div class="card__actions">
+                        <div class="row">
+                            <div class="col"></div>
+                            <div class="col">
+                                    <button class="button icon button-stable" ng-click="clear()">Clear</button>
+                            </div>
+                            <div class="col">
+                                <button id="joinBtn" class="button icon button-positive" type="submit" ng-disabled="!nameValidation(room.userName) || !nameValidation(room.roomName) || joinInProcess">Join!</button>
+                            </div>
+                            <div class="col"></div>
+                    </div>
+        
+                </form>
+            </div>
+        
+            <!-- <div class="card bgc-grey-600 roomUrl" ng-if="!existingRoomName">
+                <div class="card__content">
+                    <label class="item item-input">
+                        <span class="input-label">Share this URL for direct room access</span>
+                        <input type="text" id="roomUrlId" ng-model="roomUrl" ng-disabled="true">
+                    </label> -->
+                    <!-- <lx-text-field label="Share this URL for direct room access" theme="dark">
+                        <input type="text" id="roomUrlId" ng-model="roomUrl" ng-disabled="true">
+                    </lx-text-field> -->
+                <!-- </div>
+        
+                <div class="card__actions">
+                    <button class="btn btn--l btn--grey btn--raised" lx-ripple type="button" clipboard
+                        text="roomUrl" ng-disabled="!nameValidation(room.roomName)">Copy to clipboard</button>
+                </div>
+            </div> -->
+        
+        </div>
+        
+    </ion-content>
+</ion-view>
