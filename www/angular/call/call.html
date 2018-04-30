@@ -1,0 +1,49 @@
+<ion-view title="User:{{userName}}  (Room:{{roomName}})">
+
+	<div class="bar bar-header">
+		<h1 class="title">User:{{userName}}&nbsp;/&nbsp;Room:{{roomName}}</h1>
+		<button class="button ion-button fab icon ion-close-circled button-assertive" ng-click="leaveRoom()" id="buttonLeaveRoom" title="Leave room"></button>
+	</div>
+
+	<ion-content scroll="false" class="has-header has-footer">
+
+		<div id="room">
+
+			<div id="content">
+				
+				<div id="main-video">
+					<!--big videos-->
+				</div>
+				
+				<!-- Bacon -->
+				<!-- <div id="logo">
+					<img src="img/kurento.png" />
+				</div> -->
+				<!-- <div id="room-name">{{roomName}}</div> -->
+				
+				<div id="participants">
+					<!--small videos-->
+				</div>
+			</div>
+		</div>
+
+	</ion-content>
+
+
+	<div class="bar bar-footer footer-buttons bar-stable">
+			<div class="row row-no-padding">
+				<div class="col" style="text-align:center">
+						<button class="button icon ion-android-microphone button-light" ng-click="onOffVolume()" id="buttonVolume"
+							title="On/Off Mic"></button>
+				</div>
+				<div class="col" style="text-align:center">
+						<button class="button icon ion-android-volume-up button-light" ng-click="disableMainSpeaker()"
+									id="buttonMainSpeaker" title="On/Off Speaker"></button>
+				</div>
+				<div class="col" style="text-align:center">
+						<button class="button fab icon ion-ios-videocam button-light" ng-click="onOffVideocam()"
+							id="buttonVideocam" title="On/Off Video"></button>
+				</div>
+			</div>
+		</div>
+</ion-view>

@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta http-equiv="Content-Security-Policy" content="default-src * gap://ready wss://* blob: filesystem: ;style-src 'self' 'unsafe-inline'; media-src 'self' * media-stream: data: blob: filesystem: ;script-src 'self' 'unsafe-inline' 'unsafe-eval' *;img-src * data: blob: filesystem: ;">
     <title></title>
 
     <link rel="manifest" href="manifest.json">
@@ -19,6 +20,9 @@
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
+    <link href="css/ionic.app.css" rel="stylesheet">
+    <link href="css/room.css" rel="stylesheet">
+  
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
@@ -29,17 +33,33 @@
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
+   	<!-- Bower JavaScript dependencies -->
+	  <script src="lib/adapter.js"></script>
+	  <script src="lib/jquery.min.js"></script>
+	  <script src="lib/jquery-ui.min.js"></script>
+    <script src="lib/EventEmitter.min.js"></script>
+
+
+    <!-- Kurento JavaScript dependencies -->
+    <script src="lib/kurento-utils.js"></script>
+    <script src="lib/kurento-jsonrpc.js"></script>
+    <script src="lib/KurentoRoom.js"></script>
+
+   	<!-- Custom JavaScript dependencies -->
+  	<script src="js/myLibrary.js"></script>
+	  <script src="angular/call/callController.js"></script>
+	  <script src="angular/login/loginController.js"></script>
+	  <script src="angular/services/Participants.js"></script>
+	  <script src="angular/services/serviceParticipant.js"></script>
+	  <script src="angular/services/serviceRoom.js"></script>
+
     <!-- your app's js -->
     <script src="js/app.js"></script>
-  </head>
-  <body ng-app="starter">
 
-    <ion-pane>
-      <ion-header-bar class="bar-stable">
-        <h1 class="title">Ionic Blank Starter</h1>
-      </ion-header-bar>
-      <ion-content>
-      </ion-content>
-    </ion-pane>
+  </head>
+  <body ng-app="kurento_room">
+
+  <ion-nav-view><!--ion-nav-viewの間にPageが入る--></ion-nav-view>
+   
   </body>
 </html>
